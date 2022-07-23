@@ -10,3 +10,6 @@ coverage
 
 # Config
 .env
+
+# DS Store
+**/.DS_Store
