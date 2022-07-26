@@ -16,7 +16,7 @@
             <a class="btn btn-warning" href="/category/edit/<%= category[i]._id %>">
               <i class="far fa-edit"></i>
             </a>
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus data ?')">
               <i class="fas fa-trash"></i>
             </button>
           </form>
