@@ -12,9 +12,13 @@
         <td><%= i + 1 %></td>
         <td><%= category[i].name %></td>
         <td>
-          <form>
-            <a class="btn btn-warning" href="#"><i class="far fa-edit"></i></a>
-            <button class="btn btn-danger"><i class="fas fa-trash"></i></button>
+          <form action="/category/delete/<%= category[i]._id %>?_method=DELETE" method="POST">
+            <a class="btn btn-warning" href="/category/edit/<%= category[i]._id %>">
+              <i class="far fa-edit"></i>
+            </a>
+            <button class="btn btn-danger">
+              <i class="fas fa-trash"></i>
+            </button>
           </form>
         </td>
       </tr>
