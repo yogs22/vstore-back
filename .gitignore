@@ -13,3 +13,5 @@ coverage
 
 # DS Store
 **/.DS_Store
+
+public/uploads/*
