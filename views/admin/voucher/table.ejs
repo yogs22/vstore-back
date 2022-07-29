@@ -34,14 +34,14 @@
           <% } %>
         </td>
         <td>
-          <form class="d-inline-block" action="index.html" method="post">
+          <form class="d-inline-block" action="/voucher/status/<%= voucher[i]._id %>?_method=PUT" method="post">
             <% if (voucher[i].status === 'Y') { %>
-              <button class="btn btn-danger">
+              <button class="btn btn-danger" data-toggle="tooltip" title="Set Non-Aktif">
                 <i class="fas fa-power-off"></i>
               </button>
             <% } else { %>
-              <button class="btn btn-success">
-                <i class="fas fa-power-on"></i>
+              <button class="btn btn-success" data-toggle="tooltip" title="Set Aktif">
+                <i class="fas fa-check"></i>
               </button>
             <% } %>
           </form>

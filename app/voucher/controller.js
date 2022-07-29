@@ -62,7 +62,7 @@ module.exports = {
 
             await voucher.save();
 
-            req.flash('alertMessage', 'Berhasil tambah kategori')
+            req.flash('alertMessage', 'Berhasil tambah voucher')
             req.flash('alertStatus', 'success')
 
             res.redirect('/voucher')
@@ -81,7 +81,7 @@ module.exports = {
 
         await voucher.save();
 
-        req.flash('alertMessage', 'Berhasil tambah kategori')
+        req.flash('alertMessage', 'Berhasil tambah voucher')
         req.flash('alertStatus', 'success')
 
         res.redirect('/voucher')
@@ -143,7 +143,7 @@ module.exports = {
               thumbnail: filename
             })
 
-            req.flash('alertMessage', 'Berhasil edit kategori')
+            req.flash('alertMessage', 'Berhasil edit voucher')
             req.flash('alertStatus', 'success')
 
             res.redirect('/voucher')
@@ -162,7 +162,7 @@ module.exports = {
           nominals,
         })
 
-        req.flash('alertMessage', 'Berhasil edit kategori')
+        req.flash('alertMessage', 'Berhasil edit voucher')
         req.flash('alertStatus', 'success')
 
         res.redirect('/voucher')
@@ -187,7 +187,31 @@ module.exports = {
         fs.unlinkSync(currentImage)
       }
 
-      req.flash('alertMessage', 'Berhasil hapus kategori')
+      req.flash('alertMessage', 'Berhasil hapus voucher')
+      req.flash('alertStatus', 'success')
+
+      res.redirect('/voucher')
+    } catch (e) {
+      req.flash('alertMessage', `${e.message}`)
+      req.flash('alertStatus', `danger`)
+      res.redirect('voucher')
+    }
+  },
+  actionStatus: async (req, res) => {
+    try {
+      const { id } = req.params
+      const voucher = await Voucher.findOne({_id: id})
+
+      let status = voucher.status === 'Y' ? 'N' : 'Y'
+      console.log(status, voucher.status)
+
+      await Voucher.findOneAndUpdate({
+        _id: id
+      }, {
+        status,
+      })
+
+      req.flash('alertMessage', 'Berhasil update status voucher')
       req.flash('alertStatus', 'success')
 
       res.redirect('/voucher')
