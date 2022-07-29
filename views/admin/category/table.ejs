@@ -13,10 +13,10 @@
         <td><%= category[i].name %></td>
         <td>
           <form action="/category/delete/<%= category[i]._id %>?_method=DELETE" method="POST">
-            <a class="btn btn-warning" href="/category/edit/<%= category[i]._id %>">
+            <a class="btn btn-warning" href="/category/edit/<%= category[i]._id %>" data-toggle="tooltip" title="Edit">
               <i class="far fa-edit"></i>
             </a>
-            <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus data ?')">
+            <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus data ?')" data-toggle="tooltip" title="Hapus">
               <i class="fas fa-trash"></i>
             </button>
           </form>
