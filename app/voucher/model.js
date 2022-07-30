@@ -25,6 +25,6 @@ let categorySchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Nominal'
   }
-})
+}, { timestamps: true })
 
 module.exports = mongoose.model('Voucher', categorySchema)
