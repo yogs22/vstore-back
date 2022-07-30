@@ -10,7 +10,10 @@ module.exports = {
       const alert = { message: alertMessage, status: alertStatus }
       const payment = await Payment.find().populate('banks')
       res.render('admin/payment/view_payment', {
-        payment, alert
+        payment,
+        alert,
+        session: req.session.user,
+        title: 'Halaman Jenis Pembayaran'
       })
     } catch (e) {
       req.flash('alertMessage', `${e.message}`)
@@ -22,7 +25,9 @@ module.exports = {
     try {
       const banks = await Bank.find()
       res.render('admin/payment/create', {
-        banks
+        banks,
+        session: req.session.user,
+        title: 'Halaman Tambah Jenis Pembayaran'
       })
     } catch (e) {
       req.flash('alertMessage', `${e.message}`)
@@ -54,7 +59,10 @@ module.exports = {
       const banks = await Bank.find()
 
       res.render('admin/payment/edit', {
-        payment, banks
+        payment,
+        banks,
+        session: req.session.user,
+        title: 'Halaman Edit Jenis Pembayaran'
       })
     } catch (e) {
       req.flash('alertMessage', `${e.message}`)

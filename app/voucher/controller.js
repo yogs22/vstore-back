@@ -16,7 +16,10 @@ module.exports = {
       .populate('category')
       .populate('nominals')
       res.render('admin/voucher/view_voucher', {
-        voucher, alert
+        voucher,
+        alert,
+        session: req.session.user,
+        title: 'Halaman Voucher'
       })
     } catch (e) {
       req.flash('alertMessage', `${e.message}`)
@@ -29,7 +32,10 @@ module.exports = {
       const category = await Category.find()
       const nominal = await Nominal.find()
       res.render('admin/voucher/create', {
-        category, nominal
+        category,
+        nominal,
+        session: req.session.user,
+        title: 'Halaman Tambah Voucher'
       })
     } catch (e) {
       req.flash('alertMessage', `${e.message}`)
@@ -102,7 +108,9 @@ module.exports = {
       .populate('nominals')
 
       res.render('admin/voucher/edit', {
-        voucher, category, nominal
+        voucher, category, nominal,
+        session: req.session.user,
+        title: 'Halaman Edit Voucher'
       })
     } catch (e) {
       req.flash('alertMessage', `${e.message}`)
