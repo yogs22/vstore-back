@@ -17,10 +17,10 @@
         <td><%= nominal[i].price %></td>
         <td>
           <form action="/nominal/delete/<%= nominal[i]._id %>?_method=DELETE" method="POST">
-            <a class="btn btn-warning" href="/nominal/edit/<%= nominal[i]._id %>" data-toggle="tooltip" title="Edit">
+            <a class="btn btn-sm btn-warning" href="/nominal/edit/<%= nominal[i]._id %>" data-toggle="tooltip" title="Edit">
               <i class="far fa-edit"></i>
             </a>
-            <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus data ?')" data-toggle="tooltip" title="Hapus">
+            <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin akan menghapus data ?')" data-toggle="tooltip" title="Hapus">
               <i class="fas fa-trash"></i>
             </button>
           </form>

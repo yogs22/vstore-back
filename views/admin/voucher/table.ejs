@@ -36,20 +36,20 @@
         <td>
           <form class="d-inline-block" action="/voucher/status/<%= voucher[i]._id %>?_method=PUT" method="post">
             <% if (voucher[i].status === 'Y') { %>
-              <button class="btn btn-danger" data-toggle="tooltip" title="Set Non-Aktif">
+              <button class="btn btn-sm btn-danger" data-toggle="tooltip" title="Set Non-Aktif">
                 <i class="fas fa-power-off"></i>
               </button>
             <% } else { %>
-              <button class="btn btn-success" data-toggle="tooltip" title="Set Aktif">
+              <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Set Aktif">
                 <i class="fas fa-check"></i>
               </button>
             <% } %>
           </form>
           <form class="d-inline-block" action="/voucher/delete/<%= voucher[i]._id %>?_method=DELETE" method="POST">
-            <a class="btn btn-warning" href="/voucher/edit/<%= voucher[i]._id %>" data-toggle="tooltip" title="Edit">
+            <a class="btn btn-sm btn-warning" href="/voucher/edit/<%= voucher[i]._id %>" data-toggle="tooltip" title="Edit">
               <i class="far fa-edit"></i>
             </a>
-            <button class="btn btn-danger" onclick="return confirm('Yakin akan menghapus data ?')" data-toggle="tooltip" title="Hapus">
+            <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin akan menghapus data ?')" data-toggle="tooltip" title="Hapus">
               <i class="fas fa-trash"></i>
             </button>
           </form>
