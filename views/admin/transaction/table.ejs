@@ -51,16 +51,18 @@
         </td>
         <td><%= transaction[i].player?.name ?? '-' %></td>
         <td>
-          <form class="d-inline-block" action="/transaction/status/<%= transaction[i]._id %>?_method=PUT&status=success" method="POST">
-            <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Terima">
-              <i class="fas fa-check"></i>
-            </button>
-          </form>
-          <form class="d-inline-block" action="/transaction/status/<%= transaction[i]._id %>?_method=PUT&status=failed" method="POST">
-            <button class="btn btn-sm btn-danger" data-toggle="tooltip" title="Tolak">
-              <i class="fas fa-times"></i>
-            </button>
-          </form>
+          <% if(transaction[i].status === 'pending') { %>
+            <form class="d-inline-block" action="/transaction/status/<%= transaction[i]._id %>?_method=PUT&status=success" method="POST">
+              <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Terima">
+                <i class="fas fa-check"></i>
+              </button>
+            </form>
+            <form class="d-inline-block" action="/transaction/status/<%= transaction[i]._id %>?_method=PUT&status=failed" method="POST">
+              <button class="btn btn-sm btn-danger" data-toggle="tooltip" title="Tolak">
+                <i class="fas fa-times"></i>
+              </button>
+            </form>
+          <% } %>
         </td>
       </tr>
     <% } %>
