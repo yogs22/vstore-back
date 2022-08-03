@@ -17,7 +17,24 @@ module.exports = {
     } catch (e) {
       req.flash('alertMessage', `${e.message}`)
       req.flash('alertStatus', `danger`)
-      res.redirect('transaction')
+      res.redirect('/transaction')
     }
   },
+
+  actionStatus: async(req, res) => {
+    try {
+      const { id } = req.params
+      const { status } = req.query
+
+      await Transaction.findByIdAndUpdate({ _id: id }, { status })
+
+      req.flash('alertMessage', `Berhasil ubah status`)
+      req.flash('alertStatus', `success`)
+      res.redirect('/transaction')
+    } catch (e) {
+      req.flash('alertMessage', `${e.message}`)
+      req.flash('alertStatus', `danger`)
+      res.redirect('/transaction')
+    }
+  }
 }

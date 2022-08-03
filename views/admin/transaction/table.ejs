@@ -51,13 +51,13 @@
         </td>
         <td><%= transaction[i].player?.name ?? '-' %></td>
         <td>
-          <form class="d-inline-block" action="/transaction/delete/<%= transaction[i]._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-sm btn-success" onclick="return confirm('Yakin akan menghapus data ?')" data-toggle="tooltip" title="Terima">
+          <form class="d-inline-block" action="/transaction/status/<%= transaction[i]._id %>?_method=PUT&status=success" method="POST">
+            <button class="btn btn-sm btn-success" data-toggle="tooltip" title="Terima">
               <i class="fas fa-check"></i>
             </button>
           </form>
-          <form class="d-inline-block" action="/transaction/delete/<%= transaction[i]._id %>?_method=DELETE" method="POST">
-            <button class="btn btn-sm btn-danger" onclick="return confirm('Yakin akan menghapus data ?')" data-toggle="tooltip" title="Tolak">
+          <form class="d-inline-block" action="/transaction/status/<%= transaction[i]._id %>?_method=PUT&status=failed" method="POST">
+            <button class="btn btn-sm btn-danger" data-toggle="tooltip" title="Tolak">
               <i class="fas fa-times"></i>
             </button>
           </form>
