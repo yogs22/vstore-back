@@ -23,7 +23,7 @@ let categorySchema = mongoose.Schema({
   }],
   user: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Nominal'
+    ref: 'User'
   }
 }, { timestamps: true })
 
