@@ -193,5 +193,20 @@ history: async(req, res) => {
     } catch (e) {
       return res.status(500).json({message: e.message || `Internal server error`})
     }
+  },
+  profile: async(req, res) => {
+    try {
+      const player = {
+        id: req.player._id,
+        username: req.player.username,
+        name: req.player.name,
+        email: req.player.email,
+        phoneNumber: req.player.phoneNumber,
+        avatar: req.player.avatar,
+      }
+      res.status(200).json({ data: player })
+    } catch (e) {
+      return res.status(500).json({message: e.message || `Internal server error`})
+    }
   }
 }
