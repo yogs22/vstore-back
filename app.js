@@ -6,6 +6,7 @@ var logger = require('morgan');
 var methodOverride = require('method-override');
 var session = require('express-session');
 var flash = require('connect-flash');
+var cors = require('cors')
 
 var dashboardRouter = require('./app/dashboard/router');
 var categoryRouter = require('./app/category/router');
@@ -24,6 +25,8 @@ var url = `/api/v1`
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(cors())
 
 app.use(session({
   secret: 'keyboard cat',
