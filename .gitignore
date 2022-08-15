@@ -10,6 +10,7 @@ coverage
 
 # Config
 .env
+.env.local
 
 # DS Store
 **/.DS_Store
