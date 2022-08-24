@@ -33,7 +33,10 @@ module.exports = {
         return res.status(404).json({ message: 'Voucher not found' })
       }
 
-      return res.status(200).json({ data: voucher })
+      const payment = await Payment.find()
+        .populate('banks')
+
+      return res.status(200).json({ data: voucher, payment })
     } catch (e) {
       return res.status(500).json({message: e.message || `Internal server error`})
     }
