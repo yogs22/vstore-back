@@ -127,11 +127,9 @@ history: async(req, res) => {
         }
       }
 
-      if (req.player_id) {
-        criteria = {
-          ...criteria,
-          player: req.player._id
-        }
+      criteria = {
+        ...criteria,
+        player: req.player._id
       }
 
       const history = await Transaction.find(criteria)
